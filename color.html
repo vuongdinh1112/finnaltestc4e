@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/color.css">
+</head>
+<body>
+    <div class="colorform" style="text-align: center"    >
+        <input type="text" id="hex" class="hexcolor">
+        <input type="color" id="color" class="color">
+        <button onclick="myFunction()" class="coppyhex">Copy HEX</button>
+    </div>
+
+    <script>
+        let colorInput = document.getElementById('color');
+let hexInput = document.getElementById('hex');
+
+colorInput.addEventListener('input', () =>{
+    let color = colorInput.value;
+    hexInput.value = color;
+    document.body.style.backgroundColor = color;
+});
+
+
+//Copy HEX to Clipboard
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("hex");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
+    </script>
+
+    <script src="/color.js"></script>
+
+</body>
+</html>
